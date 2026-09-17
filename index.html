@@ -1,0 +1,866 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Ravencraft Paranormal Investigations — a family-run, evidence-based paranormal service. On-site nationwide and remote worldwide.">
+<meta name="color-scheme" content="dark">
+<meta name="theme-color" content="#0B0D13">
+<meta property="og:title" content="Ravencraft Paranormal Investigations">
+<meta property="og:description" content="Evidence-based, family-run paranormal investigation — on-site nationwide and remote worldwide.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22%3E%3Ctext y=%22.9em%22 font-size=%2290%22%3E🔦%3C/text%3E%3C/svg%3E">
+<title>Ravencraft Paranormal Investigations</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,500;1,600&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap">
+<style>
+  :root{
+    --ink:#0B0D13;
+    --ink-1:#0F121B;
+    --ink-2:#151A26;
+    --ink-3:#1C2233;
+    --line:#262D3D;
+    --line-2:#333C50;
+    --mist:#EAECF3;
+    --mist-2:#AEB5C7;
+    --mist-3:#727B92;
+    --amber:#E2A34D;
+    --amber-2:#F1C27D;
+    --amber-soft:rgba(226,163,77,.12);
+    --amber-line:rgba(226,163,77,.45);
+    --signal:#7FC8D6;
+    --danger:#D77E5F;
+
+    --f-display:"Cormorant Garamond","Iowan Old Style",Georgia,serif;
+    --f-body:"IBM Plex Sans",ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
+    --f-mono:"IBM Plex Mono",ui-monospace,"SF Mono",Menlo,monospace;
+
+    --gutter:clamp(18px,5vw,72px);
+    --maxw:1180px;
+    color-scheme:dark;
+  }
+
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;
+    background:var(--ink);
+    color:var(--mist);
+    font-family:var(--f-body);
+    font-size:16px;
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+    text-rendering:optimizeLegibility;
+    overflow-x:hidden;
+  }
+
+  .bg-glow,.bg-grain{position:fixed;inset:0;pointer-events:none;z-index:0}
+  .bg-glow{
+    background:
+      radial-gradient(1100px 620px at 78% -8%, rgba(226,163,77,.10), transparent 60%),
+      radial-gradient(900px 700px at 8% 12%, rgba(70,96,150,.14), transparent 62%),
+      radial-gradient(1200px 900px at 50% 118%, rgba(70,96,150,.10), transparent 60%);
+  }
+  .bg-grain{
+    opacity:.05;mix-blend-mode:overlay;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='170' height='170'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  .wrap{max-width:var(--maxw);margin:0 auto;padding-inline:var(--gutter)}
+  section{position:relative;z-index:1;scroll-margin-top:84px}
+
+  a{color:inherit;text-decoration:none}
+  h1,h2,h3{margin:0;text-wrap:balance;font-weight:500}
+  p{margin:0}
+
+  .mono{font-family:var(--f-mono);letter-spacing:.06em}
+  .eyebrow{
+    font-family:var(--f-mono);font-size:.72rem;letter-spacing:.24em;
+    text-transform:uppercase;color:var(--amber);display:inline-flex;gap:.7em;align-items:center;
+  }
+  .eyebrow::before{content:"";width:26px;height:1px;background:var(--amber-line)}
+  .file-tag{
+    font-family:var(--f-mono);font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;
+    color:var(--mist-3);
+  }
+  .file-tag b{color:var(--amber);font-weight:500}
+
+  /* ---------- status strip + nav ---------- */
+  .status{border-bottom:1px solid var(--line);background:rgba(11,13,19,.6);position:relative;z-index:6}
+  .status .wrap{
+    display:flex;gap:1.4rem;align-items:center;justify-content:center;flex-wrap:wrap;
+    padding-block:7px;font-family:var(--f-mono);font-size:.66rem;letter-spacing:.18em;
+    text-transform:uppercase;color:var(--mist-3);
+  }
+  .status span{display:inline-flex;align-items:center;gap:.5em;white-space:nowrap}
+  .rec{width:7px;height:7px;border-radius:50%;background:var(--danger);box-shadow:0 0 8px var(--danger);animation:blink 1.9s steps(1) infinite}
+  @keyframes blink{0%,55%{opacity:1}56%,100%{opacity:.25}}
+
+  header.nav{
+    position:sticky;top:env(safe-area-inset-top,0px);z-index:5;
+    background:rgba(11,13,19,.78);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);
+  }
+  .nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding-block:14px}
+  .brand{display:flex;align-items:center;gap:.7rem}
+  .brand .mark{
+    width:34px;height:34px;border:1px solid var(--amber-line);border-radius:50%;
+    display:grid;place-items:center;position:relative;flex:none;
+    background:radial-gradient(circle at 50% 38%,rgba(226,163,77,.28),transparent 70%);
+  }
+  .brand .mark::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--amber);box-shadow:0 0 10px var(--amber-2)}
+  .brand .mark::after{content:"";position:absolute;inset:6px;border-radius:50%;border:1px solid rgba(226,163,77,.22)}
+  .brand .txt{line-height:1.02}
+  .brand .txt b{font-family:var(--f-display);font-size:1.34rem;font-weight:600;letter-spacing:.02em;color:var(--mist)}
+  .brand .txt small{display:block;font-family:var(--f-mono);font-size:.52rem;letter-spacing:.2em;color:var(--mist-3);text-transform:uppercase;margin-top:1px}
+
+  .links{display:flex;align-items:center;gap:1.55rem}
+  .links a{font-size:.83rem;color:var(--mist-2);letter-spacing:.01em;position:relative;padding-block:4px;transition:color .2s}
+  .links a::after{content:"";position:absolute;left:0;bottom:0;width:0;height:1px;background:var(--amber);transition:width .25s}
+  .links a:hover{color:var(--mist)}.links a:hover::after{width:100%}
+
+  .btn{
+    font-family:var(--f-mono);font-size:.76rem;letter-spacing:.12em;text-transform:uppercase;
+    padding:.72em 1.25em;border-radius:2px;border:1px solid transparent;cursor:pointer;
+    display:inline-flex;align-items:center;gap:.6em;transition:transform .2s,background .2s,border-color .2s,color .2s;
+    background:transparent;color:var(--mist);white-space:nowrap;
+  }
+  .btn-primary{background:var(--amber);color:#1a1206;font-weight:600}
+  .btn-primary:hover{background:var(--amber-2);transform:translateY(-2px);box-shadow:0 8px 30px -10px rgba(226,163,77,.5)}
+  .btn-ghost{border-color:var(--line-2);color:var(--mist-2)}
+  .btn-ghost:hover{border-color:var(--amber-line);color:var(--mist);transform:translateY(-2px)}
+  .nav .btn{padding:.58em 1rem}
+  .menu-btn{display:none;background:none;border:1px solid var(--line-2);border-radius:2px;color:var(--mist);width:40px;height:38px;cursor:pointer;font-size:1.1rem}
+
+  /* ---------- hero ---------- */
+  .hero{position:relative;overflow:hidden;padding-top:clamp(48px,9vw,110px);padding-bottom:clamp(40px,7vw,84px)}
+  #fog{position:absolute;inset:0;width:100%;height:100%;z-index:0;opacity:.9}
+  .hero .wrap{position:relative;z-index:2}
+  .hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(30px,5vw,70px);align-items:center}
+  .hero h1{font-family:var(--f-display);font-weight:500;font-size:clamp(2.9rem,7.4vw,5.6rem);line-height:.98;letter-spacing:-.01em;margin:1.1rem 0 0}
+  .hero h1 em{font-style:italic;color:var(--amber-2)}
+  .lede{margin-top:1.5rem;max-width:38ch;font-size:clamp(1.02rem,1.4vw,1.18rem);color:var(--mist-2);line-height:1.6}
+  .hero-cta{margin-top:2.1rem;display:flex;gap:.9rem;flex-wrap:wrap}
+
+  .panel{border:1px solid var(--line);background:linear-gradient(180deg,rgba(21,26,38,.85),rgba(15,18,27,.85));border-radius:3px;padding:1.25rem;position:relative;box-shadow:0 30px 80px -40px rgba(0,0,0,.8)}
+  .panel::before{content:"";position:absolute;left:0;top:0;width:100%;height:2px;background:linear-gradient(90deg,transparent,var(--amber-line),transparent)}
+  .panel-head{display:flex;justify-content:space-between;align-items:center;font-family:var(--f-mono);font-size:.64rem;letter-spacing:.2em;text-transform:uppercase;color:var(--mist-3);border-bottom:1px solid var(--line);padding-bottom:.7rem;margin-bottom:.9rem}
+  .panel-head .live{color:var(--signal);display:inline-flex;align-items:center;gap:.45em}
+  .panel-head .live::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--signal);box-shadow:0 0 8px var(--signal);animation:blink 1.4s steps(1) infinite}
+  .readouts{display:grid;grid-template-columns:repeat(3,1fr);gap:.6rem;margin-bottom:.9rem}
+  .ro{border:1px solid var(--line);border-radius:2px;padding:.55rem .6rem;background:rgba(11,13,19,.5)}
+  .ro small{display:block;font-family:var(--f-mono);font-size:.56rem;letter-spacing:.16em;color:var(--mist-3);text-transform:uppercase}
+  .ro b{font-family:var(--f-mono);font-size:1.02rem;color:var(--mist);font-weight:500}
+  .ro b i{font-style:normal;font-size:.62rem;color:var(--mist-3)}
+  #wave{width:100%;height:44px;display:block}
+  .panel-foot{font-family:var(--f-mono);font-size:.62rem;letter-spacing:.14em;color:var(--mist-3);text-transform:uppercase;margin-top:.7rem;display:flex;justify-content:space-between}
+
+  .tiles{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:3px;overflow:hidden;margin-top:clamp(38px,6vw,64px)}
+  .tile{background:var(--ink-1);padding:1.4rem 1.3rem}
+  .tile b{font-family:var(--f-display);font-size:1.75rem;font-weight:600;color:var(--amber-2);display:block;line-height:1}
+  .tile span{display:block;margin-top:.5rem;font-size:.86rem;color:var(--mist-2)}
+
+  /* ---------- generic section ---------- */
+  .band{padding-block:clamp(64px,9vw,120px);border-top:1px solid var(--line)}
+  .sec-head{max-width:64ch}
+  .sec-head h2{font-family:var(--f-display);font-size:clamp(2rem,4.3vw,3.3rem);line-height:1.02;margin:.9rem 0 0}
+  .sec-head p{margin-top:1.1rem;color:var(--mist-2);font-size:1.05rem;max-width:58ch}
+
+  .cards{display:grid;gap:1px;background:var(--line);border:1px solid var(--line);border-radius:3px;overflow:hidden;margin-top:clamp(34px,5vw,56px)}
+  .cols-3{grid-template-columns:repeat(3,1fr)}
+  .card{background:var(--ink-1);padding:1.7rem 1.6rem;position:relative;transition:background .25s}
+  .card:hover{background:var(--ink-2)}
+  .card .idx{font-family:var(--f-mono);font-size:.68rem;letter-spacing:.16em;color:var(--amber);text-transform:uppercase}
+  .card h3{font-family:var(--f-display);font-size:1.5rem;font-weight:600;margin:.55rem 0 .55rem;color:var(--mist)}
+  .card p{color:var(--mist-2);font-size:.95rem}
+  .card .bar{position:absolute;left:0;top:0;height:100%;width:2px;background:var(--amber);transform:scaleY(0);transform-origin:top;transition:transform .3s}
+  .card:hover .bar{transform:scaleY(1)}
+
+  /* ---------- story ---------- */
+  .story-lede{font-family:var(--f-display);font-size:clamp(1.35rem,2.7vw,2rem);line-height:1.4;color:var(--mist-2);max-width:40ch;margin-top:1.3rem;font-weight:400}
+  .story-lede em{color:var(--amber-2);font-style:italic}
+  .timeline{margin-top:clamp(38px,5vw,60px)}
+  .tl{display:grid;grid-template-columns:160px 1fr;gap:clamp(1rem,3vw,2.6rem);padding:1.7rem 0;border-top:1px solid var(--line);align-items:baseline}
+  .tl:last-of-type{border-bottom:1px solid var(--line)}
+  .tl .yr b{font-family:var(--f-display);font-size:clamp(2rem,4vw,2.6rem);color:var(--amber-2);font-weight:600;line-height:.9;display:block}
+  .tl .yr span{display:block;font-family:var(--f-mono);font-size:.62rem;letter-spacing:.16em;color:var(--mist-3);text-transform:uppercase;margin-top:.45rem}
+  .tl h3{font-family:var(--f-display);font-size:1.5rem;font-weight:600;color:var(--mist)}
+  .tl p{color:var(--mist-2);margin-top:.45rem;max-width:64ch}
+  .tl p em{color:var(--mist);font-style:italic}
+  .mini-head{font-family:var(--f-display);font-size:clamp(1.5rem,3vw,2rem);font-weight:600;color:var(--mist);margin-top:clamp(46px,6vw,68px)}
+  .quote{margin-top:clamp(44px,6vw,72px);text-align:center;border-block:1px solid var(--line);padding-block:clamp(2.4rem,6vw,4rem)}
+  .quote .orn{color:var(--amber);font-family:var(--f-mono);letter-spacing:.5em;font-size:.9rem;margin-bottom:1.3rem}
+  .quote blockquote{margin:0 auto;font-family:var(--f-display);font-style:italic;font-weight:500;font-size:clamp(1.7rem,4.2vw,3rem);line-height:1.18;color:var(--mist);max-width:19ch;text-wrap:balance}
+  .quote cite{display:block;margin-top:1.5rem;font-family:var(--f-mono);font-style:normal;font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--amber-2)}
+  .story-close{max-width:54ch;margin:clamp(40px,5vw,60px) auto 0;text-align:center;font-size:1.14rem;color:var(--mist-2);line-height:1.75}
+  .story-close b{color:var(--mist);font-weight:600}
+
+  /* process */
+  .steps{margin-top:clamp(34px,5vw,56px);display:flex;flex-direction:column}
+  .step{display:grid;grid-template-columns:120px 1fr;gap:clamp(1rem,3vw,2.6rem);padding:1.8rem 0;border-top:1px solid var(--line);align-items:baseline}
+  .step:last-child{border-bottom:1px solid var(--line)}
+  .step .num{font-family:var(--f-display);font-size:clamp(2.4rem,5vw,3.6rem);font-weight:600;color:transparent;-webkit-text-stroke:1px var(--amber-line);line-height:.9}
+  .step h3{font-family:var(--f-display);font-size:1.6rem;font-weight:600;color:var(--mist)}
+  .step p{color:var(--mist-2);margin-top:.45rem;max-width:60ch}
+  .step .st-tag{font-family:var(--f-mono);font-size:.64rem;letter-spacing:.18em;text-transform:uppercase;color:var(--mist-3);margin-bottom:.4rem;display:block}
+
+  /* equipment */
+  .kit{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:3px;overflow:hidden;margin-top:clamp(34px,5vw,56px)}
+  .k{background:var(--ink-1);padding:1.5rem 1.4rem;transition:background .25s;position:relative}
+  .k:hover{background:var(--ink-2)}
+  .k .tag{font-family:var(--f-mono);font-size:.6rem;letter-spacing:.14em;color:var(--signal);text-transform:uppercase;border:1px solid var(--line-2);border-radius:2px;padding:.2em .5em;display:inline-block}
+  .k h3{font-size:1.06rem;font-weight:600;margin:.9rem 0 .5rem;color:var(--mist);font-family:var(--f-body);letter-spacing:-.01em}
+  .k p{color:var(--mist-2);font-size:.86rem;line-height:1.55}
+
+  /* services */
+  .svcs{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;margin-top:clamp(34px,5vw,56px)}
+  .svc{border:1px solid var(--line);border-radius:3px;background:var(--ink-1);padding:1.9rem 1.7rem;display:flex;flex-direction:column;transition:border-color .25s,transform .25s}
+  .svc:hover{border-color:var(--amber-line);transform:translateY(-3px)}
+  .svc.feature{border-color:var(--amber-line);background:linear-gradient(180deg,var(--amber-soft),var(--ink-1) 55%)}
+  .svc .svc-tag{font-family:var(--f-mono);font-size:.64rem;letter-spacing:.18em;text-transform:uppercase;color:var(--amber)}
+  .svc h3{font-family:var(--f-display);font-size:1.7rem;font-weight:600;margin:.6rem 0 .3rem;color:var(--mist)}
+  .svc .desc{color:var(--mist-2);font-size:.94rem;margin-bottom:1.1rem}
+  .svc ul{list-style:none;margin:0 0 1.4rem;padding:0;display:flex;flex-direction:column;gap:.6rem}
+  .svc li{font-size:.9rem;color:var(--mist-2);padding-left:1.4rem;position:relative}
+  .svc li::before{content:"";position:absolute;left:0;top:.55em;width:8px;height:8px;border:1px solid var(--amber);transform:rotate(45deg)}
+  .svc .price{margin-top:auto;font-family:var(--f-mono);font-size:.78rem;letter-spacing:.1em;color:var(--mist-3);text-transform:uppercase;border-top:1px solid var(--line);padding-top:1rem}
+  .svc .price b{color:var(--mist);font-weight:500}
+
+  /* ethics */
+  .ethics{margin-top:clamp(34px,5vw,56px);display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:3px;overflow:hidden}
+  .e{background:var(--ink-1);padding:1.7rem 1.6rem;display:flex;gap:1rem;align-items:flex-start}
+  .e .x{font-family:var(--f-mono);color:var(--danger);font-size:1.1rem;line-height:1;margin-top:.15rem;flex:none}
+  .e h3{font-size:1.05rem;font-weight:600;color:var(--mist);margin-bottom:.35rem;font-family:var(--f-body)}
+  .e p{color:var(--mist-2);font-size:.9rem}
+
+  /* faq */
+  .faq{margin-top:clamp(34px,5vw,56px);border-top:1px solid var(--line)}
+  details{border-bottom:1px solid var(--line)}
+  summary{list-style:none;cursor:pointer;padding:1.35rem 3rem 1.35rem 0;position:relative;font-family:var(--f-display);font-size:1.32rem;font-weight:600;color:var(--mist);transition:color .2s}
+  summary::-webkit-details-marker{display:none}
+  summary:hover{color:var(--amber-2)}
+  summary::after{content:"+";position:absolute;right:.3rem;top:50%;transform:translateY(-50%);font-family:var(--f-mono);font-size:1.4rem;color:var(--amber);transition:transform .25s}
+  details[open] summary::after{transform:translateY(-50%) rotate(45deg)}
+  details p{padding:0 3rem 1.5rem 0;color:var(--mist-2);max-width:70ch;margin-top:-.2rem}
+
+  /* intake */
+  .intake{display:grid;grid-template-columns:.85fr 1.15fr;gap:clamp(32px,5vw,64px);margin-top:clamp(34px,5vw,56px);align-items:start}
+  .intake-info .contact-row{display:flex;flex-direction:column;gap:1.2rem;margin-top:1.8rem}
+  .cr{border:1px solid var(--line);border-radius:3px;padding:1rem 1.1rem;background:var(--ink-1)}
+  .cr small{font-family:var(--f-mono);font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;color:var(--mist-3);display:block;margin-bottom:.3rem}
+  .cr b{font-size:1.02rem;color:var(--mist);font-weight:500}
+  .form{border:1px solid var(--line);border-radius:4px;background:linear-gradient(180deg,var(--ink-2),var(--ink-1));padding:clamp(1.4rem,3vw,2.1rem);box-shadow:0 30px 80px -50px rgba(0,0,0,.9)}
+  .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.05rem}
+  .field{display:flex;flex-direction:column;gap:.4rem}
+  .field.full{grid-column:1/-1}
+  label{font-family:var(--f-mono);font-size:.64rem;letter-spacing:.16em;text-transform:uppercase;color:var(--mist-2)}
+  label .req{color:var(--amber)}
+  input,select,textarea{font-family:var(--f-body);font-size:.95rem;color:var(--mist);background:rgba(11,13,19,.65);border:1px solid var(--line-2);border-radius:2px;padding:.7rem .8rem;width:100%;transition:border-color .2s,box-shadow .2s}
+  textarea{resize:vertical;min-height:110px}
+  input:focus,select:focus,textarea:focus{outline:none;border-color:var(--amber-line);box-shadow:0 0 0 3px var(--amber-soft)}
+  select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' fill='none'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23AEB5C7' stroke-width='1.4'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right .85rem center}
+  .consent{grid-column:1/-1;display:flex;gap:.7rem;align-items:flex-start;font-family:var(--f-body);font-size:.84rem;color:var(--mist-2);text-transform:none;letter-spacing:0}
+  .consent input{width:auto;margin-top:.15rem;accent-color:var(--amber)}
+  .form-actions{grid-column:1/-1;display:flex;align-items:center;gap:1rem;flex-wrap:wrap;margin-top:.4rem}
+  .err{color:var(--danger);font-size:.78rem;font-family:var(--f-mono);letter-spacing:.05em;display:none}
+  .confirm{display:none;text-align:center;padding:1rem 0}
+  .confirm .seal{width:64px;height:64px;border:1px solid var(--amber-line);border-radius:50%;display:grid;place-items:center;margin:0 auto 1.2rem;color:var(--amber);font-size:1.6rem;background:radial-gradient(circle,rgba(226,163,77,.18),transparent 70%)}
+  .confirm h3{font-family:var(--f-display);font-size:1.9rem;font-weight:600;color:var(--mist)}
+  .confirm p{color:var(--mist-2);margin-top:.7rem;max-width:46ch;margin-inline:auto}
+  .summary-box{text-align:left;background:rgba(11,13,19,.6);border:1px solid var(--line);border-radius:3px;padding:1rem 1.1rem;margin:1.4rem 0;font-family:var(--f-mono);font-size:.78rem;color:var(--mist-2);white-space:pre-wrap;line-height:1.7}
+
+  /* footer */
+  footer{border-top:1px solid var(--line);padding-block:clamp(48px,7vw,72px);position:relative;z-index:1}
+  .foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:2rem}
+  .foot-brand p{color:var(--mist-2);margin-top:1rem;max-width:40ch;font-size:.92rem}
+  .foot-col h4{font-family:var(--f-mono);font-size:.64rem;letter-spacing:.2em;text-transform:uppercase;color:var(--mist-3);margin:0 0 1rem}
+  .foot-col a,.foot-col p{display:block;color:var(--mist-2);font-size:.9rem;margin-bottom:.6rem;transition:color .2s}
+  .foot-col a:hover{color:var(--amber-2)}
+  .foot-base{border-top:1px solid var(--line);margin-top:2.6rem;padding-top:1.5rem;display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem;font-family:var(--f-mono);font-size:.66rem;letter-spacing:.12em;text-transform:uppercase;color:var(--mist-3)}
+
+  /* ---------- responsive ---------- */
+  @media(max-width:960px){
+    .hero-grid{grid-template-columns:1fr}
+    .panel{max-width:520px}
+    .cols-3{grid-template-columns:1fr}
+    .kit{grid-template-columns:repeat(2,1fr)}
+    .svcs{grid-template-columns:1fr}
+    .ethics{grid-template-columns:1fr}
+    .intake{grid-template-columns:1fr}
+    .foot-grid{grid-template-columns:1fr 1fr}
+    .tiles{grid-template-columns:repeat(2,1fr)}
+  }
+  @media(max-width:900px){
+    .links,.nav .btn{display:none}
+    .menu-btn{display:block}
+    .mobile-menu{display:none;flex-direction:column;gap:.2rem;border-top:1px solid var(--line);padding:1rem var(--gutter) 1.4rem;background:rgba(11,13,19,.96)}
+    .mobile-menu.open{display:flex}
+    .mobile-menu a{padding:.7rem 0;color:var(--mist-2);border-bottom:1px solid var(--line);font-size:.95rem}
+    .mobile-menu .btn{display:inline-flex;margin-top:.9rem;justify-content:center}
+  }
+  @media(max-width:720px){
+    .step{grid-template-columns:64px 1fr;gap:1rem}
+    .tl{grid-template-columns:1fr;gap:.5rem}
+    .tl .yr{display:flex;align-items:baseline;gap:.8rem}
+    .tl .yr b{font-size:1.9rem}
+    .tl .yr span{margin-top:0}
+    .form-grid{grid-template-columns:1fr}
+    .foot-grid{grid-template-columns:1fr}
+    .status .wrap{gap:.9rem}
+  }
+  @media(max-width:420px){
+    .tiles{grid-template-columns:1fr}
+    .kit{grid-template-columns:1fr}
+  }
+
+  @media(prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto}
+    *{animation:none!important;transition:none!important}
+  }
+  :focus-visible{outline:2px solid var(--amber);outline-offset:3px}
+</style>
+<style>img{max-width:100%;height:auto}[hidden]{display:none!important}</style>
+</head>
+<body>
+<div class="bg-glow" aria-hidden="true"></div>
+<div class="bg-grain" aria-hidden="true"></div>
+
+<!-- status strip -->
+<div class="status">
+  <div class="wrap">
+    <span><i class="rec" aria-hidden="true"></i> Intake open</span>
+    <span>Family-run</span>
+    <span>Nationwide · on-site + remote</span>
+    <span>Strictly confidential</span>
+  </div>
+</div>
+
+<!-- nav -->
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="Ravencraft Paranormal Investigations home">
+      <span class="mark" aria-hidden="true"></span>
+      <span class="txt"><b>Ravencraft</b><small>Paranormal Investigations</small></span>
+    </a>
+    <nav class="links" aria-label="Primary">
+      <a href="#story">Our Story</a>
+      <a href="#approach">Approach</a>
+      <a href="#process">Process</a>
+      <a href="#equipment">Equipment</a>
+      <a href="#ethics">Ethics</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <a href="#intake" class="btn btn-primary">Request an investigation</a>
+    <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false">☰</button>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#story">Our Story</a>
+    <a href="#approach">Approach</a>
+    <a href="#process">Process</a>
+    <a href="#equipment">Equipment</a>
+    <a href="#ethics">Ethics</a>
+    <a href="#faq">FAQ</a>
+    <a href="#intake" class="btn btn-primary">Request an investigation</a>
+  </div>
+</header>
+
+<!-- hero -->
+<section class="hero" id="top">
+  <canvas id="fog" aria-hidden="true"></canvas>
+  <div class="wrap">
+    <div class="hero-grid">
+      <div>
+        <span class="eyebrow">Paranormal investigation · family-run</span>
+        <h1>Something in the house <em>doesn't add up.</em></h1>
+        <p class="lede">Ravencraft Paranormal Investigations documents the unexplained — methodically, quietly, without judgment. Three brothers who grew up inside a thirty-year haunting, now answering the calls no one else will. On-site nationwide, or remotely from wherever you are.</p>
+        <div class="hero-cta">
+          <a href="#intake" class="btn btn-primary">Request an investigation →</a>
+          <a href="#story" class="btn btn-ghost">Read our story</a>
+        </div>
+      </div>
+
+      <aside class="panel" aria-label="Live field readout (illustrative)">
+        <div class="panel-head">
+          <span>Field readout</span>
+          <span class="live">Recording</span>
+        </div>
+        <div class="readouts">
+          <div class="ro"><small>EMF</small><b>0.2 <i>mG</i></b></div>
+          <div class="ro"><small>Ambient</small><b>61 <i>°F</i></b></div>
+          <div class="ro"><small>EVP</small><b>ARM</b></div>
+        </div>
+        <canvas id="wave" aria-hidden="true"></canvas>
+        <div class="panel-foot">
+          <span>CH.02 · AUDIO</span>
+          <span>00:03:41:07</span>
+        </div>
+      </aside>
+    </div>
+
+    <div class="tiles">
+      <div class="tile"><b>24 hr</b><span>Every intake answered within a day — day or night.</span></div>
+      <div class="tile"><b>Nationwide</b><span>On-site teams that travel, plus remote worldwide.</span></div>
+      <div class="tile"><b>Family-run</b><span>Three brothers who investigated their own home first.</span></div>
+      <div class="tile"><b>Confidential</b><span>Your name, address, and footage stay private. Always.</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- story -->
+<section class="band" id="story">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="file-tag">File <b>01</b> // The Ravencraft Family</span>
+      <h2>It started with Barry, in a house that should have stayed empty.</h2>
+      <p class="story-lede">In the winter of 1971, seven-year-old Barry Ravencraft shared a farmhouse hallway with something the family called <em>the cold spot</em> — a patch of floor that stayed frozen in every season. Barry said a woman stood in it at night, facing the wall, humming a tune with no ending. It followed him for thirty years.</p>
+    </div>
+
+    <div class="timeline">
+      <div class="tl">
+        <div class="yr"><b>1971</b><span>Coudersport, PA</span></div>
+        <div>
+          <h3>The first haunting.</h3>
+          <p>His parents blamed drafts and an overactive imagination — until the humming started coming from inside the walls. Then it started coming from Barry himself, in his sleep, in a voice that wasn't his. The family moved twice before he turned twelve. It didn't matter. Whatever stood in the cold spot came with them each time — a little closer, a little louder.</p>
+        </div>
+      </div>
+      <div class="tl">
+        <div class="yr"><b>1998</b><span>Chittenden, VT</span></div>
+        <div>
+          <h3>It had waited. It had followed.</h3>
+          <p>Barry grew up, married, and swore he'd left it behind. He raised three sons and told them nothing. Then a job moved the family to a restored colonial in Vermont, and he felt it the first night he crossed the threshold: the upstairs hall went cold, and somewhere in the dark a woman began to hum. Now there were four Ravencrafts under one roof for it to reach.</p>
+        </div>
+      </div>
+      <div class="tl">
+        <div class="yr"><b>1998–2000</b><span>The investigation</span></div>
+        <div>
+          <h3>Two years, out of pure survival.</h3>
+          <p>Barry's three sons — <em>Bret, Brock, and Brad</em> — spent two years recording, photographing, and researching their own home just to endure it. By the time they understood what they were dealing with, they'd taught themselves to investigate the unexplained better than anyone they could have hired.</p>
+        </div>
+      </div>
+      <div class="tl">
+        <div class="yr"><b>2019</b><span>The humming stopped</span></div>
+        <div>
+          <h3>It moved on the night he did.</h3>
+          <p>Barry passed in 2019, and whatever had followed him since he was seven went quiet the same night — on to wherever he did. His sons kept the recordings, the photographs, the field notes, and one hard rule their father had drilled into them.</p>
+        </div>
+      </div>
+    </div>
+
+    <h3 class="mini-head">What the boys saw.</h3>
+    <div class="cards cols-3">
+      <article class="card"><span class="bar" aria-hidden="true"></span>
+        <span class="idx">Bret · the eldest</span>
+        <h3>Every door, open.</h3>
+        <p>He woke to find every door in the house standing open — and the humming coming from all of them at once.</p>
+      </article>
+      <article class="card"><span class="bar" aria-hidden="true"></span>
+        <span class="idx">Brock · the photograph</span>
+        <h3>Her face on the film.</h3>
+        <p>He photographed the cold spot on a dare, and developed film showing the woman's face — though no one had been standing there.</p>
+      </article>
+      <article class="card"><span class="bar" aria-hidden="true"></span>
+        <span class="idx">Brad · the youngest</span>
+        <h3>The only one she spoke to.</h3>
+        <p>She spoke to him directly. He never told anyone what she said. He still won't.</p>
+      </article>
+    </div>
+
+    <div class="quote">
+      <div class="orn" aria-hidden="true">✶</div>
+      <blockquote>"You do not have to be afraid of what you can understand."</blockquote>
+      <cite>— Barry Ravencraft, 1964–2019</cite>
+    </div>
+
+    <p class="story-close">Ravencraft Paranormal Investigations exists <b>so no other family spends thirty years alone in the dark.</b> What followed Barry made them. Now they answer the calls no one else will.</p>
+  </div>
+</section>
+
+<!-- approach -->
+<section class="band" id="approach">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="file-tag">File <b>02</b> // Approach</span>
+      <h2>We rule out the ordinary before we accept the extraordinary.</h2>
+      <p>Most "hauntings" have an explanation — a draft, a loose pipe, low-frequency sound you can feel but not hear, even carbon monoxide. We start there. What's left over, when the ordinary is ruled out, is what we investigate carefully and document honestly.</p>
+    </div>
+    <div class="cards cols-3">
+      <article class="card"><span class="bar" aria-hidden="true"></span>
+        <span class="idx">Principle 01</span>
+        <h3>Debunk before belief</h3>
+        <p>Every reading is measured against a documented baseline. If there's a natural cause, we find it and we tell you — that's a successful investigation, not a failed one.</p>
+      </article>
+      <article class="card"><span class="bar" aria-hidden="true"></span>
+        <span class="idx">Principle 02</span>
+        <h3>Chain of evidence</h3>
+        <p>Cameras, audio, and instruments run continuously with synced timestamps. Nothing is cut, staged, or "enhanced." You see exactly what we recorded.</p>
+      </article>
+      <article class="card"><span class="bar" aria-hidden="true"></span>
+        <span class="idx">Principle 03</span>
+        <h3>No fear, no judgment</h3>
+        <p>We don't provoke, we don't perform, and we never sell you dread. Whatever you've experienced, you'll be taken seriously and treated with respect.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- process -->
+<section class="band" id="process">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="file-tag">File <b>03</b> // Methodology</span>
+      <h2>How an investigation runs.</h2>
+      <p>A repeatable, documented sequence — the same one the brothers built inside their own home, whether we're standing in your hallway or coordinating the case from a thousand miles away.</p>
+    </div>
+    <div class="steps">
+      <div class="step">
+        <span class="num">01</span>
+        <div><span class="st-tag">Intake &amp; interview</span>
+          <h3>You tell us what's happening.</h3>
+          <p>We gather the history of the property, a timeline of events, who has experienced what, and the questions you actually want answered. No detail is too small or too strange.</p>
+        </div>
+      </div>
+      <div class="step">
+        <span class="num">02</span>
+        <div><span class="st-tag">Baseline &amp; walkthrough</span>
+          <h3>We document the property's normal.</h3>
+          <p>Before dark, we map electromagnetic fields, temperatures, airflow, sound, and structure — so any anomaly has something real to be measured against.</p>
+        </div>
+      </div>
+      <div class="step">
+        <span class="num">03</span>
+        <div><span class="st-tag">The investigation</span>
+          <h3>The instruments go live.</h3>
+          <p>Overnight, on-site or remotely coordinated. Cameras roll, audio runs on multiple channels, and readings log continuously — every event stamped to the second.</p>
+        </div>
+      </div>
+      <div class="step">
+        <span class="num">04</span>
+        <div><span class="st-tag">Analysis</span>
+          <h3>We review every hour.</h3>
+          <p>Footage and audio are examined frame by frame and cross-referenced against the instrument logs. We separate the explainable from the genuinely unexplained.</p>
+        </div>
+      </div>
+      <div class="step">
+        <span class="num">05</span>
+        <div><span class="st-tag">Findings &amp; cross-over</span>
+          <h3>You get a clear, written report.</h3>
+          <p>Plain-English conclusions and the evidence behind them. Where activity appears genuine, we talk through respectful next steps — including helping a lingering presence move on.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- equipment -->
+<section class="band" id="equipment">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="file-tag">File <b>04</b> // Instrumentation</span>
+      <h2>The kit we carry.</h2>
+      <p>Consumer ghost apps make noise; instruments make data. Everything below is deployed against a baseline and recorded — so a reading means something.</p>
+    </div>
+    <div class="kit">
+      <div class="k"><span class="tag">EM Field</span><h3>EMF &amp; K-II meters</h3><p>Map electromagnetic fields and flag anomalies against the documented baseline of the room.</p></div>
+      <div class="k"><span class="tag">Optical</span><h3>Full-spectrum &amp; IR cameras</h3><p>See past visible light — infrared and ultraviolet — recorded to timestamped DVR across the site.</p></div>
+      <div class="k"><span class="tag">Thermal</span><h3>Thermal imaging</h3><p>Track sudden cold spots and heat signatures a room has no ordinary reason to produce.</p></div>
+      <div class="k"><span class="tag">Audio</span><h3>EVP &amp; digital recorders</h3><p>Capture electronic voice phenomena across multiple recorders so anything caught can be cross-referenced.</p></div>
+      <div class="k"><span class="tag">Field</span><h3>REM pod &amp; ambient probes</h3><p>Detect real-time changes in the radiating field and air temperature around a fixed point.</p></div>
+      <div class="k"><span class="tag">Motion</span><h3>Laser grid &amp; trip sensors</h3><p>Reveal movement and shadow crossing a mapped plane of light the eye can't track in the dark.</p></div>
+      <div class="k"><span class="tag">Vision</span><h3>SLS / structured light</h3><p>Flag humanoid figures that standard optics and the naked eye consistently miss.</p></div>
+      <div class="k"><span class="tag">Safety</span><h3>Environmental baseline kit</h3><p>Barometric, humidity, and carbon-monoxide readings — because CO can mimic a haunting, and it's dangerous.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- services -->
+<section class="band" id="services">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="file-tag">File <b>05</b> // Engagements</span>
+      <h2>Ways we can help.</h2>
+      <p>Every case begins with a free, no-pressure intake conversation. Scope, timing, and cost are quoted only after we understand what you're dealing with.</p>
+    </div>
+    <div class="svcs">
+      <article class="svc">
+        <span class="svc-tag">On-site</span>
+        <h3>Full investigation</h3>
+        <p class="desc">A complete overnight investigation of your home — team, equipment deployment, and a documented report.</p>
+        <ul>
+          <li>Baseline survey &amp; interview</li>
+          <li>Overnight multi-camera / multi-audio</li>
+          <li>Full evidence review &amp; written findings</li>
+          <li>Travel arranged nationwide</li>
+        </ul>
+        <div class="price">From <b>custom quote</b> · after intake</div>
+      </article>
+
+      <article class="svc feature">
+        <span class="svc-tag">Remote · worldwide</span>
+        <h3>Consultation &amp; evidence review</h3>
+        <p class="desc">Can't get a team to you? Send us your footage, audio, and logs — we analyze, debunk, and advise from anywhere.</p>
+        <ul>
+          <li>Guided camera &amp; recorder placement</li>
+          <li>Live monitored overnight session</li>
+          <li>Professional review of your evidence</li>
+          <li>Written findings &amp; next-step guidance</li>
+        </ul>
+        <div class="price">Flat <b>consult fee</b> · quoted up front</div>
+      </article>
+
+      <article class="svc">
+        <span class="svc-tag">Historic · commercial</span>
+        <h3>Sites &amp; businesses</h3>
+        <p class="desc">Inns, theaters, museums, and workplaces. Discreet scheduling around your hours and documentation you control.</p>
+        <ul>
+          <li>Off-hours, low-disruption scheduling</li>
+          <li>Multi-night engagements available</li>
+          <li>Findings you can publish — or keep private</li>
+          <li>Reference-ready for historic properties</li>
+        </ul>
+        <div class="price">From <b>custom quote</b> · after intake</div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ethics -->
+<section class="band" id="ethics">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="file-tag">File <b>06</b> // Standards</span>
+      <h2>What we will never do.</h2>
+      <p>The Ravencrafts spent thirty years on the other side of the phone call. Trust in this field is earned by what you refuse to do — and these lines don't move.</p>
+    </div>
+    <div class="ethics">
+      <div class="e"><span class="x" aria-hidden="true">✕</span><div><h3>We are not a religious or cleansing service</h3><p>No exorcisms, no curse-lifting, no channeling for hire. If you want spiritual guidance, we'll help you find it — we don't sell it.</p></div></div>
+      <div class="e"><span class="x" aria-hidden="true">✕</span><div><h3>We won't manufacture a haunting</h3><p>Drafts, wiring, infrasound, and carbon monoxide explain most cases. If there's a natural cause, that is our honest finding.</p></div></div>
+      <div class="e"><span class="x" aria-hidden="true">✕</span><div><h3>We never charge fear</h3><p>No pressure, no invented follow-ups, no upsells built on someone's worst night. You'll always know the cost before we begin.</p></div></div>
+      <div class="e"><span class="x" aria-hidden="true">✕</span><div><h3>We won't expose you</h3><p>Nothing about your case — your name, your address, your footage — is shared or published without your written permission.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- faq -->
+<section class="band" id="faq">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="file-tag">File <b>07</b> // Questions</span>
+      <h2>Before you reach out.</h2>
+    </div>
+    <div class="faq">
+      <details open><summary>Do you charge for this?</summary><p>Every case starts with a free intake conversation. On-site investigations and remote reviews are quoted only after we understand the scope — and we'll never invent a reason to keep coming back.</p></details>
+      <details><summary>What if you find nothing?</summary><p>That's a real and valuable result. Most reports rule out natural causes — bad wiring, drafts, infrasound, carbon monoxide — and that alone can bring peace, and sometimes safety.</p></details>
+      <details><summary>Is any of this dangerous?</summary><p>No. Our methods are observational — we watch, measure, and record. There's no provocation and no theatrics. Your family's comfort comes first, every time.</p></details>
+      <details><summary>Can you really investigate remotely?</summary><p>Yes. We coordinate camera and recorder placement, monitor and log the session live with you, then review the evidence. It's how we reach cases anywhere in the world.</p></details>
+      <details><summary>Will anyone find out?</summary><p>Not from us. Confidentiality is the default. Nothing about your case is shared or published without your written consent — no exceptions.</p></details>
+      <details><summary>Do you work with skeptics?</summary><p>Especially skeptics. We are skeptics — we simply document carefully before we draw any conclusion. Doubt is welcome in the room.</p></details>
+    </div>
+  </div>
+</section>
+
+<!-- intake -->
+<section class="band" id="intake">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="file-tag">File <b>08</b> // Open a case</span>
+      <h2>Request an investigation.</h2>
+      <p>Tell us what's happening. It's confidential, there's no cost to reach out, and we answer every intake within 24 hours.</p>
+    </div>
+
+    <div class="intake">
+      <div class="intake-info">
+        <p style="color:var(--mist-2)">Prefer to talk it through first? However you're most comfortable — we'll meet you there.</p>
+        <div class="contact-row">
+          <div class="cr"><small>Email intake</small><b>intake@ravencraftparanormal.com</b></div>
+          <div class="cr"><small>Intake line</small><b>(802) 555-0146</b></div>
+          <div class="cr"><small>Response</small><b>Within 24 hours · day or night</b></div>
+          <div class="cr"><small>Coverage</small><b>On-site nationwide · remote worldwide</b></div>
+        </div>
+      </div>
+
+      <div class="form">
+        <form id="intakeForm" novalidate>
+          <div class="form-grid">
+            <div class="field"><label for="f-name">Your name <span class="req">*</span></label><input id="f-name" name="name" autocomplete="name" required></div>
+            <div class="field"><label for="f-email">Email <span class="req">*</span></label><input id="f-email" name="email" type="email" autocomplete="email" required></div>
+            <div class="field"><label for="f-phone">Phone</label><input id="f-phone" name="phone" type="tel" autocomplete="tel"></div>
+            <div class="field"><label for="f-loc">Location <span class="req">*</span></label><input id="f-loc" name="location" placeholder="City, State — or “Remote”" required></div>
+            <div class="field"><label for="f-type">Property type</label>
+              <select id="f-type" name="propertyType">
+                <option>Home / residence</option>
+                <option>Historic site</option>
+                <option>Business / commercial</option>
+                <option>Other</option>
+              </select>
+            </div>
+            <div class="field"><label for="f-svc">Preferred service</label>
+              <select id="f-svc" name="service">
+                <option>Not sure yet</option>
+                <option>On-site investigation</option>
+                <option>Remote consultation &amp; review</option>
+                <option>Historic / commercial</option>
+              </select>
+            </div>
+            <div class="field full"><label for="f-msg">What's happening? <span class="req">*</span></label><textarea id="f-msg" name="message" placeholder="When it started, what you've experienced, and what you'd like answered." required></textarea></div>
+            <label class="consent" for="f-consent"><input type="checkbox" id="f-consent" name="consent" required> I understand this is a confidential intake and consent to be contacted about my case.</label>
+            <div class="form-actions">
+              <button type="submit" class="btn btn-primary">Open my case →</button>
+              <span class="err" id="formErr">Please complete the required fields.</span>
+            </div>
+          </div>
+        </form>
+
+        <div class="confirm" id="confirm">
+          <div class="seal" aria-hidden="true">✦</div>
+          <h3>Your file is open.</h3>
+          <p>Here's the intake summary. To send it now, email it to <b style="color:var(--amber-2)">intake@ravencraftparanormal.com</b> — we'll reply within 24 hours.</p>
+          <div class="summary-box" id="summaryBox"></div>
+          <div style="display:flex;gap:.8rem;justify-content:center;flex-wrap:wrap">
+            <a class="btn btn-primary" id="mailtoBtn" href="#">Email this intake →</a>
+            <button class="btn btn-ghost" id="copyBtn" type="button">Copy details</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- footer -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <a class="brand" href="#top">
+          <span class="mark" aria-hidden="true"></span>
+          <span class="txt"><b>Ravencraft</b><small>Paranormal Investigations</small></span>
+        </a>
+        <p>Founded by the three Ravencraft brothers, who documented their own haunting for two years before they documented anyone else's. In memory of Barry Ravencraft.</p>
+      </div>
+      <div class="foot-col">
+        <h4>Investigate</h4>
+        <a href="#story">Our story</a>
+        <a href="#approach">Approach</a>
+        <a href="#process">Methodology</a>
+        <a href="#equipment">Equipment</a>
+        <a href="#ethics">Standards</a>
+      </div>
+      <div class="foot-col">
+        <h4>Contact</h4>
+        <a href="#intake">Request an investigation</a>
+        <p>intake@ravencraftparanormal.com</p>
+        <p>(802) 555-0146</p>
+        <p>On-site nationwide · remote worldwide</p>
+      </div>
+    </div>
+    <div class="foot-base">
+      <span>© 2026 Ravencraft Paranormal Investigations</span>
+      <span>So no other family spends thirty years alone in the dark.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var mb=document.getElementById('menuBtn'), mm=document.getElementById('mobileMenu');
+  if(mb&&mm){
+    mb.addEventListener('click',function(){
+      var open=mm.classList.toggle('open');
+      mb.setAttribute('aria-expanded',open?'true':'false');
+      mb.textContent=open?'✕':'☰';
+    });
+    mm.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){mm.classList.remove('open');mb.textContent='☰';mb.setAttribute('aria-expanded','false');});});
+  }
+
+  var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  (function(){
+    var c=document.getElementById('fog'); if(!c) return;
+    var ctx=c.getContext('2d'), w=0,h=0,dpr=1,blobs=[],raf=null,vis=true;
+    function size(){var r=c.getBoundingClientRect();dpr=Math.min(window.devicePixelRatio||1,1.5);w=r.width;h=r.height;c.width=Math.max(1,w*dpr);c.height=Math.max(1,h*dpr);ctx.setTransform(dpr,0,0,dpr,0,0);}
+    function make(){blobs=[];var n=7;for(var i=0;i<n;i++){blobs.push({x:Math.random()*w,y:Math.random()*h,r:Math.min(w,h)*(0.35+Math.random()*0.45),dx:(Math.random()-0.5)*0.12,dy:(Math.random()-0.5)*0.07,a:0.035+Math.random()*0.055,amber:Math.random()<0.3});}}
+    function draw(){ctx.clearRect(0,0,w,h);ctx.globalCompositeOperation='lighter';for(var i=0;i<blobs.length;i++){var b=blobs[i];var g=ctx.createRadialGradient(b.x,b.y,0,b.x,b.y,b.r);var col=b.amber?'226,163,77':'110,140,195';g.addColorStop(0,'rgba('+col+','+b.a+')');g.addColorStop(1,'rgba('+col+',0)');ctx.fillStyle=g;ctx.beginPath();ctx.arc(b.x,b.y,b.r,0,Math.PI*2);ctx.fill();b.x+=b.dx;b.y+=b.dy;if(b.x<-b.r)b.x=w+b.r;if(b.x>w+b.r)b.x=-b.r;if(b.y<-b.r)b.y=h+b.r;if(b.y>h+b.r)b.y=-b.r;}ctx.globalCompositeOperation='source-over';}
+    function loop(){if(!vis){raf=null;return;}draw();raf=requestAnimationFrame(loop);}
+    size();make();
+    if(reduce){draw();}
+    else{
+      if('IntersectionObserver' in window){var io=new IntersectionObserver(function(e){vis=e[0].isIntersecting;if(vis&&!raf)loop();},{threshold:0});io.observe(c);}
+      loop();
+    }
+    window.addEventListener('resize',function(){size();make();if(reduce)draw();},{passive:true});
+  })();
+
+  (function(){
+    var c=document.getElementById('wave'); if(!c) return;
+    var ctx=c.getContext('2d'),w=0,h=0,dpr=1,t=0,raf=null,vis=true;
+    function size(){var r=c.getBoundingClientRect();dpr=Math.min(window.devicePixelRatio||1,2);w=r.width;h=r.height;c.width=Math.max(1,w*dpr);c.height=Math.max(1,h*dpr);ctx.setTransform(dpr,0,0,dpr,0,0);}
+    function draw(){ctx.clearRect(0,0,w,h);ctx.lineWidth=1.4;ctx.strokeStyle='rgba(127,200,214,0.85)';ctx.shadowColor='rgba(127,200,214,0.5)';ctx.shadowBlur=6;ctx.beginPath();for(var x=0;x<=w;x++){var p=x/w;var env=Math.sin(p*Math.PI);var y=h/2+Math.sin(p*9+t)*h*0.17*env+(Math.random()-0.5)*h*0.09*env;x===0?ctx.moveTo(x,y):ctx.lineTo(x,y);}ctx.stroke();ctx.shadowBlur=0;}
+    function loop(){if(!vis){raf=null;return;}t+=0.09;draw();raf=requestAnimationFrame(loop);}
+    size();
+    if(reduce){draw();}
+    else{
+      if('IntersectionObserver' in window){var io=new IntersectionObserver(function(e){vis=e[0].isIntersecting;if(vis&&!raf)loop();},{threshold:0});io.observe(c);}
+      loop();
+    }
+    window.addEventListener('resize',function(){size();if(reduce)draw();},{passive:true});
+  })();
+
+  var form=document.getElementById('intakeForm');
+  if(form){
+    var errEl=document.getElementById('formErr');
+    form.addEventListener('submit',function(ev){
+      ev.preventDefault();
+      var required=['name','email','location','message'];
+      var ok=true;
+      required.forEach(function(n){var el=form.elements[n];if(!el||!el.value.trim()){ok=false;}});
+      var email=form.elements['email'];
+      if(email&&email.value&&!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email.value)){ok=false;}
+      if(!form.elements['consent'].checked){ok=false;}
+      if(!ok){errEl.style.display='inline';return;}
+      errEl.style.display='none';
+
+      var g=function(n){var e=form.elements[n];return e?e.value.trim():'';};
+      var lines=[
+        'RAVENCRAFT PARANORMAL INVESTIGATIONS — CASE INTAKE',
+        '--------------------------------------------------',
+        'Name:      '+g('name'),
+        'Email:     '+g('email'),
+        'Phone:     '+(g('phone')||'—'),
+        'Location:  '+g('location'),
+        'Property:  '+g('propertyType'),
+        'Service:   '+g('service'),
+        '',
+        'What\'s happening:',
+        g('message')
+      ];
+      var body=lines.join('\n');
+      document.getElementById('summaryBox').textContent=body;
+
+      var mailto='mailto:intake@ravencraftparanormal.com'
+        +'?subject='+encodeURIComponent('Case intake — '+g('name'))
+        +'&body='+encodeURIComponent(body);
+      document.getElementById('mailtoBtn').setAttribute('href',mailto);
+
+      form.style.display='none';
+      var confirm=document.getElementById('confirm');
+      confirm.style.display='block';
+      confirm.scrollIntoView({behavior:reduce?'auto':'smooth',block:'center'});
+
+      var copyBtn=document.getElementById('copyBtn');
+      copyBtn.addEventListener('click',function(){
+        var done=function(){copyBtn.textContent='Copied ✓';setTimeout(function(){copyBtn.textContent='Copy details';},1800);};
+        try{
+          if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(body).then(done,function(){fallback();});}
+          else{fallback();}
+        }catch(e){fallback();}
+        function fallback(){
+          var ta=document.createElement('textarea');ta.value=body;ta.style.position='fixed';ta.style.opacity='0';document.body.appendChild(ta);ta.select();
+          try{document.execCommand('copy');done();}catch(e){}
+          document.body.removeChild(ta);
+        }
+      });
+    });
+  }
+})();
+</script>
+</body>
+</html>
